@@ -15,7 +15,7 @@ def login():
     }
     if verified_user:
         token = write_token(data=userResource)
-        response = jsonify({"token": str(token)})
+        response = jsonify({"token": token.decode('utf-8')})
         response.status_code = 200
         return response
     else:
