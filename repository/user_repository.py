@@ -27,7 +27,7 @@ class UserRepository:
             self.cursor.execute(sql)
             self.connection.commit()
         except Exception as e:
-            print(e)
+            return e
 
     def close(self):
         self.connection.close()

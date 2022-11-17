@@ -18,4 +18,5 @@ class UserService:
 
     def register_user(self, data: User):
         data['password'] = generate_password_hash(data['password'])
-        self.userRepository.create_user(data)
+        result = self.userRepository.create_user(data)
+        return result

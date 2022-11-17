@@ -9,7 +9,8 @@ def verify_token_middelware(func):
         try:
             token = request.headers['Authorization'].split(" ")[1]
         except Exception as e:
-            response = jsonify({"menssage": "Token is required " + str(e)})
+            print("Error token not found: ", e)
+            response = jsonify({"menssage": "You do not have access without a valid token"})
             response.status_code = 404
             return response
         response = validate_token(token, output=False)
