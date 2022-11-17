@@ -10,10 +10,16 @@ routes_auth = Blueprint("routes_auth", __name__)
 def login():
     data = request.get_json()
     verified_user = userService.verify_user(data['username'], data['password'])
+    userResource = {
+            'username': data['username']
+    }
     if verified_user:
-        return write_token(data=request.get_json())
+        token = write_token(data=userResource)
+        response = jsonify({"token": str(token)})
+        response.status_code = 200
+        return response
     else:
-        response = jsonify({"menssage": "User not found"})
+        response = jsonify({"menssage": "User or password not valid"})
         response.status_code = 404
         return response
 
@@ -22,4 +28,6 @@ def login():
 def register():
     data = request.get_json()
     userService.register_user(data)
-    return data
+    response = jsonify({"menssage": "User successfully registered"})
+    response.status_code = 200
+    return response

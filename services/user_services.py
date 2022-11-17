@@ -1,5 +1,5 @@
 from repository.user_repository import UserRepository
-from werkzeug.security import generate_password_hash
+from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 from models.userModel import User
 
@@ -10,10 +10,8 @@ class UserService:
         self.userRepository = UserRepository()
 
     def verify_user(self, name, password):
-        encripted_pass = generate_password_hash(password)
-        print(encripted_pass)
-        result = self.userRepository.find_user(name, encripted_pass)
-        if result > 0:
+        result = self.userRepository.find_user(name, password)
+        if check_password_hash(result[1], password):
             return True
         else:
             return False
