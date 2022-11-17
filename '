@@ -4,9 +4,9 @@
 - [Proyecto legaltycs backend](#proyecto-legaltycs-backend)
   - [Descripción](#descripción)
   - [Endpoints](#endpoints)
-    - [Login user [ /api/login ]](#login-user-apilogin)
-    - [Register user [ /api/register ]](#register-user-apiregister)
-    - [Test authenticate route [ /api/test ]](#test-authenticate-route-apitest)
+    - [Login user [/api/login]](#login-user-apilogin)
+    - [Register user [/api/register]](#register-user-apiregister)
+    - [Test](#test)
   - [Ejecución en entorno de desarrollo :rocket:](#ejecución-en-entorno-de-desarrollo-rocket)
 <!--toc:end-->
 
@@ -14,40 +14,26 @@
 
 ## Endpoints
 
-### Login user [ /api/login ]
+### Login user [/api/login]
 - Body
 ```
 {
-    "username": "",
-    "password": ""
+    "username": "annie",
+    "password": "stray"
 }
 ```
-### Register user [ /api/register ]
+### Register user [/api/register]
 - Body
 ```
 {
-    "username": "",
-    "password": "",
-    "lastname": "",
-    "name": ""
+    "username": "xantx",
+    "password": "stray",
+    "lastname": "Tomasto",
+    "name": "Angie"
 }
 ```
-### Test authenticate route [ /api/test ]
-Proporcione un Bearer Token
-
-Repuesta sin token
-```
-{
-    "menssage": "You do not have access without a valid token"
-}
-```
-Repuesta con token
-```
-{
-    "mensaje": "Entre"
-}
-```
-
+### Test authenticate route [/api/test]
+- Bearer Token
 
 ## Ejecución en entorno de desarrollo :rocket:
 
@@ -70,7 +56,7 @@ USER=root
 PASS=root
 DB=legaltycs
 ```
-- Cree una base de datos mysql con el nombre "legaltycs" y ejecute la siguiente query
+- Cree una base de datos mysql con el nombre legaltycs y ejecute la siguiente query
 
 ``` sql
 create table user(

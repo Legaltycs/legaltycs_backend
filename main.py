@@ -1,10 +1,15 @@
 from flask import Flask
 from dotenv import load_dotenv
 from routes.auth import routes_auth
+from routes.private.test import routes_test
+from flask_cors import CORS
 
 app = Flask(__name__)
 
+CORS(app, resources={r"/api/*": {"origins": "*"}})
+
 app.register_blueprint(routes_auth, url_prefix="/api")
+app.register_blueprint(routes_test, url_prefix="/api")
 
 if __name__ == '__main__':
     load_dotenv()

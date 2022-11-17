@@ -15,7 +15,7 @@ def login():
     }
     if verified_user:
         token = write_token(data=userResource)
-        response = jsonify({"token": str(token)})
+        response = jsonify({"token": token.decode('utf-8')})
         response.status_code = 200
         return response
     else:
@@ -27,7 +27,12 @@ def login():
 @routes_auth.route("/register", methods=["POST"])
 def register():
     data = request.get_json()
-    userService.register_user(data)
-    response = jsonify({"menssage": "User successfully registered"})
-    response.status_code = 200
-    return response
+    result = userService.register_user(data)
+    if result:
+        response = jsonify({"menssage": "Username already exist"})
+        response.status_code = 200
+        return response
+    else:
+        response = jsonify({"menssage": "User successfully registered"})
+        response.status_code = 200
+        return response
