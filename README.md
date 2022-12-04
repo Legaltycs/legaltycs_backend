@@ -8,6 +8,9 @@
     - [Register user [ /api/register ]](#register-user-apiregister)
     - [Test authenticate route [ /api/test ]](#test-authenticate-route-apitest)
   - [Ejecución en entorno de desarrollo :rocket:](#ejecución-en-entorno-de-desarrollo-rocket)
+  - [Verificar que el entorno virtual se habilito](#verificar-que-el-entorno-virtual-se-habilito)
+    - [Ejecutar el siguiente comando para descargar los paquetes necesarios](#ejecutar-el-siguiente-comando-para-descargar-los-paquetes-necesarios)
+  - [Para desactivar el entorno virtual ejecute](#para-desactivar-el-entorno-virtual-ejecute)
 <!--toc:end-->
 
 ## Descripción
@@ -58,6 +61,15 @@ Repuesta con token
 ```
 $ pip install virtualenv
 $ python -m venv .venv
+$ .\.venv\Scripts\activate (Verifique que se active el entorno virtual con este comando)
+```
+## Verificar que el entorno virtual se habilito
+
+![activate](./img/activar_entorno_virtual.png)
+
+### Ejecutar el siguiente comando para descargar los paquetes necesarios
+
+```
 $ pip install -r requirements.txt 
 
 ```
@@ -85,3 +97,13 @@ create table user(
 ```
 $ python main.py
 ```
+
+## Para desactivar el entorno virtual ejecute
+
+Verifique que se desactive el entorno virual cuando deje de trabajar con el proyecto.
+
+```
+$ deactive 
+```
+
+![deactivate](./img/desactivar_entorno_virtual.png)

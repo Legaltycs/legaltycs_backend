@@ -1,5 +1,5 @@
 from db.db_conection import DataBase
-from models.userModel import User
+from iam.models.userModel import User
 
 
 class UserRepository:

@@ -1,7 +1,7 @@
-from repository.user_repository import UserRepository
+from iam.repository.user_repository import UserRepository
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
-from models.userModel import User
+from iam.models.userModel import User
 
 
 class UserService:

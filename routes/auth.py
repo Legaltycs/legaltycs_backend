@@ -1,6 +1,6 @@
 from flask import Blueprint, request, jsonify
 from function_jwt import write_token
-from services.user_services import UserService
+from iam.services.user_services import UserService
 
 userService = UserService()
 routes_auth = Blueprint("routes_auth", __name__)
