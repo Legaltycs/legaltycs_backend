@@ -8,19 +8,24 @@ routes_auth = Blueprint("routes_auth", __name__)
 
 @routes_auth.route("/login", methods=["POST"])
 def login():
-    data = request.get_json()
-    verified_user = userService.verify_user(data['username'], data['password'])
-    userResource = {
-            'username': data['username']
-    }
-    if verified_user:
-        token = write_token(data=userResource)
-        response = jsonify({"token": token.decode('utf-8')})
-        response.status_code = 200
-        return response
-    else:
-        response = jsonify({"menssage": "User or password not valid"})
-        response.status_code = 404
+    try:
+        data = request.get_json()
+        verified_user = userService.verify_user(data['username'], data['password'])
+        userResource = {
+                'username': data['username']
+        }
+        if verified_user:
+            token = write_token(data=userResource)
+            response = jsonify({"token": token.decode('utf-8')})
+            response.status_code = 200
+            return response
+        else:
+            response = jsonify({"message": "User or password not valid"})
+            response.status_code = 400
+            return response
+    except Exception as e:
+        response = jsonify({"message": e})
+        response.status_code = 500
         return response
 
 
@@ -28,11 +33,12 @@ def login():
 def register():
     data = request.get_json()
     result = userService.register_user(data)
-    if result:
-        response = jsonify({"menssage": "Username already exist"})
-        response.status_code = 200
+    print(result)
+    if result != 1:
+        response = jsonify({"message": "Username and email already exist"})
+        response.status_code = 400
         return response
     else:
-        response = jsonify({"menssage": "User successfully registered"})
+        response = jsonify({"message": "User successfully registered"})
         response.status_code = 200
         return response

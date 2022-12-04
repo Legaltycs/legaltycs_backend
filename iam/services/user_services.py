@@ -10,10 +10,16 @@ class UserService:
         self.userRepository = UserRepository()
 
     def verify_user(self, name, password):
-        result = self.userRepository.find_user(name, password)
-        if check_password_hash(result[1], password):
-            return True
-        else:
+        try:
+            result = self.userRepository.find_user(name)
+            if result is None:
+                return False
+            if check_password_hash(result[0], password):
+                return True
+            else:
+                return False
+        except Exception as e:
+            print("Verify_user Error:", e)
             return False
 
     def register_user(self, data: User):
