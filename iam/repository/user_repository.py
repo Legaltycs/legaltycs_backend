@@ -21,8 +21,9 @@ class UserRepository:
         username = data['username']
         password = data['password']
         lastname = data['lastname']
+        email = data['email']
         name = data['name']
-        sql = 'insert into user (username, password, lastname, name) values ("{0}", "{1}", "{2}", "{3}");'.format(username, password, lastname, name)
+        sql = 'insert into user (username, password, lastname, name, email) values ("{0}", "{1}", "{2}", "{3}", "{4}");'.format(username, password, lastname, name, email)
         try:
             self.cursor.execute(sql)
             self.connection.commit()
