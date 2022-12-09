@@ -32,6 +32,7 @@
     "username": "",
     "password": "",
     "lastname": "",
+    "email": "",
     "name": ""
 }
 ```
@@ -86,12 +87,13 @@ DB=legaltycs
 
 ``` sql
 create table user(
-	  username varchar(20),
+    id varchar(255),
+    username varchar(20) unique,
     password varchar(255),
     name varchar(255),
     lastname varchar(255),
     email varchar(255) unique,
-    PRIMARY KEY (username)
+    PRIMARY KEY (id)
 );
 ```
 - Ejecute el servicio con el comando
