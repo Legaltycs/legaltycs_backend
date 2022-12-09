@@ -11,12 +11,12 @@ def login():
     try:
         data = request.get_json()
         verified_user = userService.verify_user(data['username'], data['password'])
-        userResource = {
-                'username': data['username']
-        }
         if verified_user:
+            userResource = {
+                    'username': data['username']
+            }
             token = write_token(data=userResource)
-            response = jsonify({"token": token.decode('utf-8')})
+            response = jsonify({"id": verified_user[1], "token": token.decode('utf-8')})
             response.status_code = 200
             return response
         else:
@@ -33,7 +33,7 @@ def login():
 def register():
     data = request.get_json()
     result = userService.register_user(data)
-    print(result)
+    print("regiter endpoint", result)
     if result != 1:
         response = jsonify({"message": "Username and email already exist"})
         response.status_code = 400

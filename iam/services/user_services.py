@@ -15,7 +15,7 @@ class UserService:
             if result is None:
                 return False
             if check_password_hash(result[0], password):
-                return True
+                return result
             else:
                 return False
         except Exception as e:
