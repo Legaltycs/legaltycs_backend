@@ -58,7 +58,14 @@ Repuesta con token
 ```
 $ pip install virtualenv
 $ python -m venv .venv
+$ .venv\Scripts\activate
 $ pip install -r requirements.txt 
+
+```
+- Para desactivar el entorno virtual tiene que ejecutar el comando
+
+```
+$ deactivate
 
 ```
 - Cree un archivo .env an la carpeta raiz del proyecto con los siguientes atributos
