@@ -112,7 +112,7 @@ $ python main.py
 Verifique que se desactive el entorno virual cuando deje de trabajar con el proyecto.
 
 ```
-$ deactive 
+$ deactivate 
 ```
 
 ![deactivate](./img/desactivar_entorno_virtual.png)
