@@ -1,18 +1,14 @@
 from flask import Flask
 from dotenv import load_dotenv
 from flask_cors import CORS
-from py4j.java_gateway import JavaGateway
 from routes.auth import routes_auth
 from routes.private.test import routes_test
 from routes.search import search_routes
+from ontology.services import Ontology
 
 
 app = Flask(__name__)
-
-#Conexion con Protegé
-gateway = JavaGateway()
-ontology = gateway.entry_point.getOntology()
-
+Ontology()
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Registrar rutas
