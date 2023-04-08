@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, request
 from flask_login import login_required
-from ontology.services import Ontology
+from ontology.services import ontology
 
 search_routes = Blueprint('search',__name__)
 
@@ -9,5 +9,5 @@ search_routes = Blueprint('search',__name__)
 @login_required
 def search():
     query = request.get_json()['query']
-    results = Ontology.ontology.search(query) # Realizar la búsqueda ontológica en Protegé
+    results = ontology.Ontology.ontology.search(query) # Realizar la búsqueda ontológica en Protegé
     return jsonify({'results': results})

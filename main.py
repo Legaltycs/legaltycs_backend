@@ -4,11 +4,13 @@ from flask_cors import CORS
 from routes.auth import routes_auth
 from routes.private.test import routes_test
 from routes.search import search_routes
-from ontology.services import Ontology
+from ontology.services import ontology
 
 
 app = Flask(__name__)
-Ontology()
+
+ontology.Ontology()
+
 CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Registrar rutas
