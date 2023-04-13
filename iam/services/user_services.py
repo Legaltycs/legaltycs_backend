@@ -1,4 +1,5 @@
 from iam.repository.user_repository import UserRepository
+from iam.repository.role_repository import RoleRepository
 from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 from iam.models.userModel import User
