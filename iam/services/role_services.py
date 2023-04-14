@@ -18,7 +18,7 @@ class RoleService:
         except Exception as e:
             print("Verify_role Error:", e)
             return False
-
+    
     def register_role(self, data: Role):
         result = self.roleRepository.create_role(data)
         return result
