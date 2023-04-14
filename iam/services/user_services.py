@@ -3,7 +3,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from dotenv import load_dotenv
 from iam.models.userModel import User
 from iam.services.role_services import RoleService
-from common.response_errors.response_errors import status_bad_request, status_ok
+from common.response_errors.response_messages import status_bad_request, status_ok
 
 class UserService:
     def __init__(self):
