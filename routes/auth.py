@@ -34,11 +34,4 @@ def register():
     data = request.get_json()
     result = userService.register_user(data)
     print("regiter endpoint", result)
-    if result != 1:
-        response = jsonify({"message": "Username and email already exist"})
-        response.status_code = 400
-        return response
-    else:
-        response = jsonify({"message": "User successfully registered"})
-        response.status_code = 200
-        return response
+    return result

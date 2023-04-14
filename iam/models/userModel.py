@@ -3,5 +3,6 @@ User = {
         "password": " ",
         "email": " ",
         "name": " ",
-        "lastname": " "
+        "lastname": " ",
+        "role_id": " "
 }

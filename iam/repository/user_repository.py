@@ -24,8 +24,9 @@ class UserRepository:
         lastname = data['lastname']
         email = data['email']
         name = data['name']
+        role_id = data['role_id']
         id = uuid.uuid4()
-        sql = 'insert into user (id, username, password, lastname, name, email) values ("{0}", "{1}", "{2}", "{3}", "{4}", "{5}");'.format(id, username, password, lastname, name, email)
+        sql = 'insert into user (id, username, password, lastname, name, email, role_id) values ("{0}", "{1}", "{2}", "{3}", "{4}", "{5}", "{6}");'.format(id, username, password, lastname, name, email, role_id)
         try:
             result = self.cursor.execute(sql)
             self.connection.commit()
